@@ -14,7 +14,7 @@ const Cart = ({ cart, increaseQty, decreaseQty }: Props) => {
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const isDiscountApplied = totalPrice > DISCOUNT_THRESHOLD;
+  const isDiscountApplied = totalPrice >= DISCOUNT_THRESHOLD;
   const discountAmount = isDiscountApplied ? totalPrice * DISCOUNT_RATE : 0;
   const finalPrice = totalPrice - discountAmount;
 
